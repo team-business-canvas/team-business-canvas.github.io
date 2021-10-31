@@ -1,0 +1,3 @@
+const HEADER_HEIGHT = 80
+
+export { HEADER_HEIGHT }
