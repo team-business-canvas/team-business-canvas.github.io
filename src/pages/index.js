@@ -1,11 +1,14 @@
 import * as React from 'react'
+import styled from 'styled-components'
 
 const IndexPage = () => {
   return (
-    <main>
+    <IndexPageRoot>
       <h1>hello</h1>
-    </main>
+    </IndexPageRoot>
   )
 }
+
+const IndexPageRoot = styled.div``
 
 export default IndexPage
