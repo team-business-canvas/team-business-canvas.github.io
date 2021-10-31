@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './header'
 import Footer from './footer'
 import styled from 'styled-components'
+import { FixedSideBar } from '..'
 
 function Layout(props) {
   const { children } = props
@@ -9,6 +10,7 @@ function Layout(props) {
   return (
     <LayoutRoot>
       <Header />
+      {/* <FixedSideBar /> */}
       {children}
       <Footer />
     </LayoutRoot>
@@ -16,7 +18,7 @@ function Layout(props) {
 }
 
 const LayoutRoot = styled.div`
-  height: 200vh;
+  height: 100vh;
 `
 
 export default Layout

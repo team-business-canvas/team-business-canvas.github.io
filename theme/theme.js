@@ -64,10 +64,10 @@ const margins = {
 }
 
 const deviceSizes = {
-  mobile: 'only screen and (max-width: 50rem)',
-  table: 'only screen and (max-width: 65rem)',
-  //   tablet: `@media all and (min-width: 767px) and (max-width: 1023px)`,
-  //   desktop: `@media all and (min-width: 1023px)`,
+  // mobile: 'only screen and (max-width: 50rem)',
+  // table: 'only screen and (max-width: 65rem)',
+  tablet: `@media all and (min-width: 767px) and (max-width: 1023px)`,
+  desktop: `@media all and (min-width: 1023px)`,
 }
 
 const fonts = {

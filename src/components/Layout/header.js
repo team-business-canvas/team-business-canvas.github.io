@@ -39,36 +39,35 @@ function Header() {
   }
 
   return (
-    <>
-      <HeaderRoot isScroll={isScroll}>
-        <LeftPanel className='right-panel'>
-          <div
-            role='button'
-            tabIndex={0}
-            style={{ cursor: 'pointer' }}
-            onClick={menuClick}
-          >
-            <Hamberger isMenuOpen={isMenuOpen} />
-          </div>
-        </LeftPanel>
+    <HeaderRoot isScroll={isScroll}>
+      <LeftPanel className='right-panel'>
+        <div
+          role='button'
+          tabIndex={0}
+          style={{ cursor: 'pointer' }}
+          onClick={menuClick}
+        >
+          <Hamberger isMenuOpen={isMenuOpen} />
+        </div>
+      </LeftPanel>
 
-        <Link to='/'>
-          <LogoImg src={isDarkMode ? DarkFullLogo : LightFullLogo} alt='logo' />
-        </Link>
+      <Link to='/'>
+        <LogoImg src={isDarkMode ? DarkFullLogo : LightFullLogo} alt='logo' />
+      </Link>
 
-        <RightPanel className='left-panel'>
-          <button onClick={darkModeButtonClick}>
-            {isDarkMode ? 'Light' : 'Dark'}
-          </button>
-        </RightPanel>
-      </HeaderRoot>
-    </>
+      <RightPanel className='left-panel'>
+        <button onClick={darkModeButtonClick}>
+          {isDarkMode ? 'Light' : 'Dark'}
+        </button>
+      </RightPanel>
+    </HeaderRoot>
   )
 }
 
 const HeaderRoot = styled.header`
   position: sticky;
   top: 0;
+  z-index: 10;
 
   display: flex;
   justify-content: space-between;
@@ -77,7 +76,7 @@ const HeaderRoot = styled.header`
   width: 100%;
   height: ${HEADER_HEIGHT}px;
 
-  border-bottom: 1px solid var(--adaptiveGray300);
+  border-bottom: 1px solid var(--adaptiveGray200);
   padding: 0 2rem;
 
   background-color: var(--adaptiveGray50);

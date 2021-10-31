@@ -77,7 +77,7 @@ function Footer() {
       <FooterText className='footer__text'>
         <div>© Business Canvas. All rights reserved.</div>
         <small>
-          made by
+          Blog made by
           <a href='https://github.com/DarrenKwonDev'>
             <UnderLine text='Darren' />
           </a>
@@ -88,6 +88,9 @@ function Footer() {
 }
 
 const FooterRoot = styled.footer`
+  position: sticky;
+  bottom: 0;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,7 +104,7 @@ const SocialWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin: 18px 0;
+  margin: 48px 0 36px 0;
 
   a {
     cursor: pointer;
@@ -119,6 +122,7 @@ const FooterText = styled.div`
   justify-content: center;
   align-items: center;
 
+  color: var(--adaptiveGray900);
   line-height: 1.5;
 `
 
