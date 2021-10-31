@@ -8,7 +8,7 @@ function singlePost(props) {
   const { data, pageContext } = props
 
   const featuredImage =
-    data.mdx.frontmatter?.featuredImage.childImageSharp.fixed
+    data.mdx.frontmatter?.featuredImage?.childImageSharp.fixed
 
   return (
     <Layout>

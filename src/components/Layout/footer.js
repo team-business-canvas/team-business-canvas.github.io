@@ -97,6 +97,7 @@ const FooterRoot = styled.footer`
   margin-top: ${FOOTER_WHITE_SPACE_HEIGHT}px;
   border-top: 1px solid var(--adaptiveGray200);
   padding-bottom: ${FOOTER_WHITE_SPACE_HEIGHT}px;
+  background: var(--adaptiveGray50);
 `
 
 const SocialWrapper = styled.div`

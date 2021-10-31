@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Divider, GridWrapper, Layout, PostFeed } from '../components'
+import { Divider, Layout, PostFeed, PostFeedWrapper } from '../components'
 import styled from 'styled-components'
 
 function allPosts(props) {
@@ -24,24 +24,20 @@ function allPosts(props) {
       <AllPostTitle>Typed 기술 블로그</AllPostTitle>
       <Divider />
 
-      <GridWrapper>
+      <PostFeedWrapper>
         {posts.map(({ node: { id, frontmatter } }) => {
           console.log(frontmatter)
 
           return <PostFeed key={id} frontmatter={frontmatter} />
         })}
-      </GridWrapper>
-
-      <div>some pagination</div>
+      </PostFeedWrapper>
     </Layout>
   )
 }
 
 const AllPostTitle = styled.h1`
   width: 100%;
-
   margin-top: 48px;
-
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
@@ -63,6 +59,14 @@ export const allPostQuery = graphql`
             title
             date(formatString: "MMM DD, YYYY")
             excerpt
+            author
+            featuredImage {
+              childImageSharp {
+                fixed(width: 220, height: 164) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }
