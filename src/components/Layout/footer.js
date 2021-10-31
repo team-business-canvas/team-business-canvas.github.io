@@ -3,6 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 import styled from 'styled-components'
 import { UnderLine } from '..'
+import { FOOTER_WHITE_SPACE_HEIGHT } from '../../constants'
 
 function Footer() {
   const socialData = useStaticQuery(graphql`
@@ -88,15 +89,14 @@ function Footer() {
 }
 
 const FooterRoot = styled.footer`
-  position: sticky;
-  bottom: 0;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
+  margin-top: ${FOOTER_WHITE_SPACE_HEIGHT}px;
   border-top: 1px solid var(--adaptiveGray200);
+  padding-bottom: ${FOOTER_WHITE_SPACE_HEIGHT}px;
 `
 
 const SocialWrapper = styled.div`
