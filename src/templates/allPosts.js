@@ -1,12 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Divider, Layout, PostFeed, PostFeedWrapper } from '../components'
-import styled from 'styled-components'
+import {
+  AllPostTitle,
+  Divider,
+  Layout,
+  PostFeed,
+  PostFeedWrapper,
+} from '../components'
 
 function allPosts(props) {
   console.log(props)
 
   const { data, pageContext } = props
+  console.log(pageContext)
   const { currentPage, numPages } = pageContext
 
   const isFirst = currentPage === 1
@@ -21,7 +27,7 @@ function allPosts(props) {
 
   return (
     <Layout>
-      <AllPostTitle>Typed 기술 블로그</AllPostTitle>
+      <AllPostTitle title='Type 기술 블로그' />
       <Divider />
 
       <PostFeedWrapper>
@@ -34,15 +40,6 @@ function allPosts(props) {
     </Layout>
   )
 }
-
-const AllPostTitle = styled.h1`
-  width: 100%;
-  margin-top: 48px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  color: var(--adaptiveGray900);
-`
 
 export const allPostQuery = graphql`
   query AllPostQuery($skip: Int!, $limit: Int!) {
