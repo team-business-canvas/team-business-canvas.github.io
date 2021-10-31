@@ -4,7 +4,9 @@
   "private": true,
   "description": "Typed Tech Blog",
   "author": "DarrenKwonDev",
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
@@ -35,11 +37,18 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "gatsby-remark-copy-linked-files": "^5.0.0",
+    "gatsby-remark-images": "^6.0.0",
+    "gatsby-remark-prismjs": "^6.0.0",
+    "gatsby-remark-responsive-iframe": "^5.0.0",
+    "gatsby-remark-smartypants": "^5.0.0",
     "husky": "^6.0.0",
     "lint-staged": "^11.2.6",
     "prettier": "^2.4.1"
   },
   "lint-staged": {
-    "*.(js|tsx|ts|tsx)": ["npm run format"]
+    "*.(js|tsx|ts|tsx)": [
+      "npm run format"
+    ]
   }
 }
