@@ -133,3 +133,8 @@ table {
 button {
   all: unset;
 }
+
+a {
+  all: unset;
+  cursor: pointer;
+}

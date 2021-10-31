@@ -14,17 +14,14 @@ function Hamberger({ isMenuOpen }) {
 const HambergerRoot = styled.div`
   position: relative;
   width: 20px;
-
   z-index: 1010;
+  cursor: pointer;
 
   .menu,
   .menu::before,
   .menu::after {
     position: absolute;
-    background: ${({ isMenuOpen, theme }) =>
-      isMenuOpen
-        ? `var(--adaptiveGray50)`
-        : `var(--adaptiveGray900)`}; // 바의 색깔
+    background: var(--adaptiveGray900);
     content: '';
     display: block;
     height: 2px; // 바의 두께

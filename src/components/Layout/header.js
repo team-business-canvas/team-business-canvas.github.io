@@ -1,14 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link } from 'gatsby'
-import fullLogo from '../../images/fullLogo.svg'
+import LightFullLogo from '../../images/light-full-logo.svg'
+import DarkFullLogo from '../../images/dark-full-logo.png'
 import styled from 'styled-components'
-import { HEADER_HEIGHT } from '../../constants'
+import { HEADER_HEIGHT, HEADER_LOGO_HEIGHT } from '../../constants'
 import Hamberger from './hamberger'
-import Navigator from '../Navigator'
 
 function Header() {
   const [isScroll, setIsScroll] = useState(false)
   const [isMenuOpen, setisMenuOpen] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(() =>
+    document.body.classList.contains('dark-mode')
+  )
 
   const menuClick = () => {
     setisMenuOpen(!isMenuOpen)
@@ -30,20 +33,33 @@ function Header() {
     }
   }, [handleScroll])
 
+  const darkModeButtonClick = () => {
+    document.body.classList.toggle('dark-mode')
+    setIsDarkMode(isDarkMode => !isDarkMode)
+  }
+
   return (
     <>
       <HeaderRoot isScroll={isScroll}>
-        {isMenuOpen && <Navigator />}
         <LeftPanel className='right-panel'>
-          <Link to='/'>
-            <img src={fullLogo} alt='logo' />
-          </Link>
-        </LeftPanel>
-
-        <RightPanel className='left-panel'>
-          <div style={{ cursor: 'pointer' }} onClick={menuClick}>
+          <div
+            role='button'
+            tabIndex={0}
+            style={{ cursor: 'pointer' }}
+            onClick={menuClick}
+          >
             <Hamberger isMenuOpen={isMenuOpen} />
           </div>
+        </LeftPanel>
+
+        <Link to='/'>
+          <LogoImg src={isDarkMode ? DarkFullLogo : LightFullLogo} alt='logo' />
+        </Link>
+
+        <RightPanel className='left-panel'>
+          <button onClick={darkModeButtonClick}>
+            {isDarkMode ? 'Light' : 'Dark'}
+          </button>
         </RightPanel>
       </HeaderRoot>
     </>
@@ -70,4 +86,7 @@ const HeaderRoot = styled.header`
 const LeftPanel = styled.div``
 const RightPanel = styled.div``
 
+const LogoImg = styled.img`
+  height: ${HEADER_LOGO_HEIGHT}px;
+`
 export default Header

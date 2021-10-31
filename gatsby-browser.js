@@ -67,11 +67,14 @@ const GlobalStyles = createGlobalStyle`
 
     html,
     body {
+        background-color: var(--adaptiveGray50);
         font-family: ${props => props.theme.fonts.main};
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
         -webkit-font-smoothing: antialiased;
-        background-color: var(--adaptiveGray50)
+        color: var(---adaptiveGray900);
+
     }
+      
     * {
         box-sizing: border-box;
     }
