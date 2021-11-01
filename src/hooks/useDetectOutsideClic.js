@@ -5,6 +5,7 @@ function useDetectOutsideClick(ref, setState) {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
         // dom 바깥 클릭
+        console.log('should off')
         setState(false)
       }
     }

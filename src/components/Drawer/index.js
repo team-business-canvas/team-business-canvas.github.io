@@ -1,19 +1,35 @@
-import { Link } from 'gatsby'
 import React, { useRef } from 'react'
 import styled from 'styled-components'
+import { navigate } from 'gatsby'
 import useDetectOutsideClick from '../../hooks/useDetectOutsideClic'
+import DrawerEase from '../../animations/DrawerEase'
 
 function Drawer({ setisMenuOpen }) {
   const drawerRef = useRef(null)
   useDetectOutsideClick(drawerRef, setisMenuOpen)
 
+  const handleHomeClick = () => {
+    setisMenuOpen(false)
+    navigate('/')
+  }
+
+  const handleAboutClick = () => {
+    setisMenuOpen(false)
+    window.location.href = 'https://www.typed.biz/career'
+  }
+
+  const handleBlogClick = () => {
+    setisMenuOpen(false)
+    navigate('/blog/1')
+  }
+
   return (
     <Overlay>
       <DrawerContent ref={drawerRef}>
         <DrawerHeader>Typed!</DrawerHeader>
-        <DrawerItem to='/'>Home</DrawerItem>
-        <DrawerItem to='/blog/1'>About</DrawerItem>
-        <DrawerItem to='/blog/1'>Blog</DrawerItem>
+        <DrawerItem onClick={handleHomeClick}>Home</DrawerItem>
+        <DrawerItem onClick={handleAboutClick}>About</DrawerItem>
+        <DrawerItem onClick={handleBlogClick}>Blog</DrawerItem>
       </DrawerContent>
     </Overlay>
   )
@@ -46,6 +62,7 @@ const DrawerContent = styled.div`
 
   background-color: var(--adaptiveGray50);
   pointer-events: 'none';
+  animation: ${DrawerEase} 0.25s ease-in-out;
 `
 
 const DrawerHeader = styled.div`
@@ -56,7 +73,7 @@ const DrawerHeader = styled.div`
   height: 84px;
 `
 
-const DrawerItem = styled(Link)`
+const DrawerItem = styled.button`
   box-sizing: border-box;
 
   display: flex;
@@ -67,6 +84,10 @@ const DrawerItem = styled(Link)`
 
   width: 100%;
   height: 50px;
+
+  color: var(--adaptiveGray900);
+
+  cursor: pointer;
 
   &:hover {
     background-color: var(--adaptiveGray100);
