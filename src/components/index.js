@@ -7,6 +7,7 @@ import PostFeedWrapper from './PostFeedWrapper'
 import AllPostTitle from './AllPostTitle'
 import Code from './Code'
 import Pagination from './Pagination'
+import Drawer from './Drawer'
 
 export {
   Layout,
@@ -18,4 +19,5 @@ export {
   AllPostTitle,
   Code,
   Pagination,
+  Drawer,
 }

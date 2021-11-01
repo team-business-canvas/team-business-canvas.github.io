@@ -5,6 +5,9 @@ import DarkFullLogo from '../../images/dark-full-logo.png'
 import styled from 'styled-components'
 import { HEADER_HEIGHT, HEADER_LOGO_HEIGHT } from '../../constants'
 import Hamberger from './hamberger'
+import Sun from '../../images/sun.svg'
+import Moon from '../../images/moon.svg'
+import { Drawer } from '..'
 
 function Header() {
   const [isScroll, setIsScroll] = useState(false)
@@ -39,28 +42,35 @@ function Header() {
   }
 
   return (
-    <HeaderRoot isScroll={isScroll}>
-      <LeftPanel className='right-panel'>
-        <div
-          role='button'
-          tabIndex={0}
-          style={{ cursor: 'pointer' }}
-          onClick={menuClick}
-        >
-          <Hamberger isMenuOpen={isMenuOpen} />
-        </div>
-      </LeftPanel>
+    <>
+      {isMenuOpen && <Drawer setisMenuOpen={setisMenuOpen} />}
+      <HeaderRoot isScroll={isScroll}>
+        <LeftPanel className='right-panel'>
+          <div
+            role='button'
+            tabIndex={0}
+            style={{ cursor: 'pointer' }}
+            onClick={menuClick}
+          >
+            <Hamberger isMenuOpen={isMenuOpen} />
+          </div>
+        </LeftPanel>
 
-      <Link to='/'>
-        <LogoImg src={isDarkMode ? DarkFullLogo : LightFullLogo} alt='logo' />
-      </Link>
+        <Link to='/'>
+          <LogoImg src={isDarkMode ? DarkFullLogo : LightFullLogo} alt='logo' />
+        </Link>
 
-      <RightPanel className='left-panel'>
-        <button onClick={darkModeButtonClick}>
-          {isDarkMode ? 'Light' : 'Dark'}
-        </button>
-      </RightPanel>
-    </HeaderRoot>
+        <RightPanel className='left-panel'>
+          <button onClick={darkModeButtonClick} style={{ cursor: 'pointer' }}>
+            {isDarkMode ? (
+              <img src={Sun} alt='sun' style={{ color: 'white' }} />
+            ) : (
+              <img src={Moon} alt='moon' />
+            )}
+          </button>
+        </RightPanel>
+      </HeaderRoot>
+    </>
   )
 }
 

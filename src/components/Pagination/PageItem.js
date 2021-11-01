@@ -39,7 +39,7 @@ const PageButton = styled.button`
 
   &:hover {
     background-color: ${({ isCurrentPage }) =>
-      !isCurrentPage && 'rgba(0, 0, 0, 0.02)'};
+      !isCurrentPage && 'var(--adaptiveGray100)'};
   }
 `
 
