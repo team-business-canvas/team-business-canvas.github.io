@@ -2,13 +2,11 @@
 import React from 'react'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Theme from './theme/theme'
-
 import './style/reset.css'
-import { preToCodeBlock } from 'mdx-utils'
-import './style/language-tabs.css'
-import { Code, Layout } from './src/components'
+import { Layout } from './src/components'
 import { MDXProvider } from '@mdx-js/react'
 require('prismjs/themes/prism-okaidia.css')
+import './style/language-tabs.css'
 
 const GlobalStyles = createGlobalStyle`
     :root {
@@ -185,21 +183,9 @@ const GlobalStyles = createGlobalStyle`
 
 const mdxComponents = {
   h1: props => <h1 {...props} />,
-  pre: props => console.log(props.children.props) || <pre {...props} />,
+  pre: props => <pre {...props} />,
   wrapper: ({ children }) => <>{children}</>,
 }
-
-// pre: props => {
-//   console.log(props)
-
-//   const processedProps = preToCodeBlock(props)
-
-//   if (props) {
-//     return <Code {...processedProps} />
-//   } else {
-//     return <pre {...props} />
-//   }
-// },
 
 export const wrapRootElement = ({ element }) => {
   return (

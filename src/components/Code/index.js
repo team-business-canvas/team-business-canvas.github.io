@@ -1,14 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/nightOwl'
 import dracula from 'prism-react-renderer/themes/dracula'
 
 function Code({ codeString, language, ...props }) {
-  // console.log('codeString should be string')
-  // console.log(codeString)
-  // console.log(typeof codeString)
-
   return (
     <Highlight
       code={codeString}
