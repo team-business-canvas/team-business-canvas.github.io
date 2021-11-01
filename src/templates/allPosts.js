@@ -1,10 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { AllPostTitle, Divider, PostFeed, PostFeedWrapper } from '../components'
+import {
+  AllPostTitle,
+  Divider,
+  PostFeed,
+  PostFeedWrapper,
+  Pagination,
+} from '../components'
 
 function allPosts(props) {
   const { data, pageContext } = props
-  const { currentPage, numPages } = pageContext
+  const { currentPage, numPages, limit } = pageContext
 
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
@@ -13,16 +19,22 @@ function allPosts(props) {
 
   const posts = data?.allMdx.edges
 
+  // const totalCount = data?.allMdx.totalCount // 전체 몇 개야?
+  // const postPerPage = limit // 한 페이지에 몇 개씩 보여줘?
+  // const numPages = Math.ceil(totalCount / postPerPage) // 총 몇 페이지 나오니?
+
+  console.log(numPages)
+
   return (
     <>
       <AllPostTitle title='Type 기술 블로그' />
       <Divider />
-
       <PostFeedWrapper>
         {posts.map(({ node: { id, frontmatter } }) => {
           return <PostFeed key={id} frontmatter={frontmatter} />
         })}
       </PostFeedWrapper>
+      <Pagination numPages={numPages} />
     </>
   )
 }
@@ -34,6 +46,7 @@ export const allPostQuery = graphql`
       skip: $skip
       limit: $limit
     ) {
+      totalCount
       edges {
         node {
           id

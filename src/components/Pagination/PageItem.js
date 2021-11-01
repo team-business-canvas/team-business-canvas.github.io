@@ -1,0 +1,40 @@
+import { Link } from 'gatsby'
+import React from 'react'
+import styled from 'styled-components'
+
+function PageItem({ page }) {
+  const isCurrentPage =
+    Number(window.location.pathname.split('/').at(-1)) === page
+
+  return (
+    <Link to={`/blog/${page}`}>
+      <PageButton isCurrentPage={isCurrentPage}>{page}</PageButton>
+    </Link>
+  )
+}
+
+const PageButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 6px;
+
+  background-color: ${({ isCurrentPage }) =>
+    isCurrentPage ? 'var(--adaptiveGray900)' : 'var(--adaptiveGray50)'};
+
+  color: ${({ isCurrentPage }) =>
+    isCurrentPage ? 'var(--adaptiveGray50)' : 'var(--adaptiveGray900)'};
+
+  cursor: pointer;
+
+  &:hover {
+    /* background-color: ${({ isCurrentPage }) =>
+      isCurrentPage ? 'rgba(0, 0, 0, 0.04)' : 'rgba(0, 0, 0, 0.04)'}; */
+  }
+`
+
+export default PageItem
