@@ -32,7 +32,6 @@ const IndexPage = props => {
 
 // TODO: page에 속한 컴포넌트들은 createPage를 통해 context를 전달받지 못하기 때문에 직접 인자를 넣어줘야 함
 // 첫 페이지이므로 skip은 0, limit은 gatsby-node.js에 정의된 postPerPage 만큼
-// {limit: 3, skip: 0, numPages: 2, currentPage: 1}
 export const allPostQuery = graphql`
   query allPostQuery($skip: Int! = 0, $limit: Int! = 3) {
     allMdx(
@@ -53,6 +52,9 @@ export const allPostQuery = graphql`
               childImageSharp {
                 fixed(width: 220, height: 164) {
                   ...GatsbyImageSharpFixed
+                }
+                fluid(maxWidth: 320) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

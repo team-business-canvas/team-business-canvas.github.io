@@ -62,6 +62,9 @@ export const allPostQuery = graphql`
                 fixed(width: 220, height: 164) {
                   ...GatsbyImageSharpFixed
                 }
+                fluid(maxWidth: 320) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
