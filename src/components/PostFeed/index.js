@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
-import PostHover from '../../../animations/PostHover'
+import PostHover from '../../animations/PostHover'
 
 function PostFeed({ frontmatter }) {
   const thumbnail = frontmatter.featuredImage?.childImageSharp?.fixed

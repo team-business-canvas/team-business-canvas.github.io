@@ -27,7 +27,7 @@ function allPosts(props) {
 
   return (
     <>
-      <AllPostTitle title='Type 기술 블로그' />
+      <AllPostTitle title='Typed 기술 블로그' />
       <Divider />
       <PostFeedWrapper>
         {posts.map(({ node: { id, frontmatter } }) => {

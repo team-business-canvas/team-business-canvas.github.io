@@ -5,8 +5,9 @@ import Img from 'gatsby-image'
 import { Divider } from '../components'
 import styled from 'styled-components'
 import '../../style/normalize.css'
+import useScrollFadeIn from '../hooks/useScrollFadeIn'
 
-function singlePost(props) {
+function SinglePost(props) {
   const { data, pageContext } = props
 
   const title = data.mdx.frontmatter?.title
@@ -17,7 +18,9 @@ function singlePost(props) {
 
   return (
     <>
-      <PostTitle itemprop='headline'>{title}</PostTitle>
+      <PostTitle itemprop='headline' {...useScrollFadeIn('up', 1, 0)}>
+        {title}
+      </PostTitle>
       <PostInfo>
         {date} / {author}
       </PostInfo>
@@ -47,10 +50,13 @@ const PostInfo = styled.h2`
 `
 
 const MDXRendererWrapper = styled.div`
-  // custom styles
+  background-color: var(--adaptiveGray50);
+
   padding: 0 ${props => props.theme.paddings.xxxxxl};
+  padding-bottom: 64px;
   ${props => props.theme.deviceSizes.desktop} {
     padding: 0 ${props => props.theme.paddings.global};
+    padding-bottom: 64px;
   }
 
   color: var(--adaptiveGray900);
@@ -80,4 +86,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default singlePost
+export default SinglePost
