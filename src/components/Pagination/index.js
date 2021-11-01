@@ -1,13 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 import PageItem from './PageItem'
+import NextPrevItem from './NextPrevItem'
 
-function Pagination({ numPages }) {
+function Pagination({ isFirstPage, isLastPage, numPages, currentPage }) {
+  console.log(isFirstPage, isLastPage, numPages, currentPage)
+
   return (
     <PaginationRoot>
+      <NextPrevItem
+        direction='prev'
+        isFirstPage={isFirstPage}
+        isLastPage={isLastPage}
+        currentPage={currentPage}
+      />
       {Array.from({ length: numPages }, (_, i) => {
         return <PageItem key={i} page={i + 1} />
       })}
+      <NextPrevItem
+        direction='next'
+        isFirstPage={isFirstPage}
+        isLastPage={isLastPage}
+        currentPage={currentPage}
+      />
     </PaginationRoot>
   )
 }
@@ -22,6 +37,10 @@ const PaginationRoot = styled.div`
   padding: 24px 0;
 
   background-color: var(--adaptiveGray50);
+
+  & > *:not(:last-child) {
+    margin-right: 8px;
+  }
 `
 
 export default Pagination

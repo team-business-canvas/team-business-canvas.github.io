@@ -32,8 +32,8 @@ const PageButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    /* background-color: ${({ isCurrentPage }) =>
-      isCurrentPage ? 'rgba(0, 0, 0, 0.04)' : 'rgba(0, 0, 0, 0.04)'}; */
+    background-color: ${({ isCurrentPage }) =>
+      !isCurrentPage && 'rgba(0, 0, 0, 0.02)'};
   }
 `
 

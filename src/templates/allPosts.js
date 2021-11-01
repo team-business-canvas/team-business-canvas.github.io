@@ -10,10 +10,10 @@ import {
 
 function allPosts(props) {
   const { data, pageContext } = props
-  const { currentPage, numPages, limit } = pageContext
+  const { currentPage, numPages } = pageContext
 
-  const isFirst = currentPage === 1
-  const isLast = currentPage === numPages
+  const isFirstPage = currentPage === 1
+  const isLastPage = currentPage === numPages
   const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${currentPage - 1}`
   const nextPage = `/blog/${currentPage + 1}`
 
@@ -34,7 +34,12 @@ function allPosts(props) {
           return <PostFeed key={id} frontmatter={frontmatter} />
         })}
       </PostFeedWrapper>
-      <Pagination numPages={numPages} />
+      <Pagination
+        isFirstPage={isFirstPage}
+        isLastPage={isLastPage}
+        numPages={numPages}
+        currentPage={currentPage}
+      />
     </>
   )
 }
