@@ -12,6 +12,7 @@ function Hamberger({ isMenuOpen }) {
 }
 
 const HambergerRoot = styled.div`
+  display: block;
   position: relative;
   width: 20px;
   z-index: 1010;
@@ -47,6 +48,8 @@ const HambergerRoot = styled.div`
     height: 2px; // 두껍게
   }
 
+  /* drawer 만든 이후 active할 이유가 없어서 삭제 */
+  /* 
   .active {
     // 활성화 되면 중앙에 있는 바는 삭제
 
@@ -65,9 +68,9 @@ const HambergerRoot = styled.div`
     .menu::before,
     .menu::after {
       top: 0px;
-      transition: top ease 0.2s, transform ease 0.2s 0.2s;
+      transition: top ease 0.1s, transform ease 0.1s 0.1s;
     }
-  }
+  } */
 `
 
 export default Hamberger
