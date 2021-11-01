@@ -1,18 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import {
-  AllPostTitle,
-  Divider,
-  Layout,
-  PostFeed,
-  PostFeedWrapper,
-} from '../components'
+import { AllPostTitle, Divider, PostFeed, PostFeedWrapper } from '../components'
 
 function allPosts(props) {
-  console.log(props)
-
   const { data, pageContext } = props
-  console.log(pageContext)
   const { currentPage, numPages } = pageContext
 
   const isFirst = currentPage === 1
@@ -22,22 +13,17 @@ function allPosts(props) {
 
   const posts = data?.allMdx.edges
 
-  console.log('all posts data', data)
-  console.log(pageContext)
-
   return (
-    <Layout>
+    <>
       <AllPostTitle title='Type 기술 블로그' />
       <Divider />
 
       <PostFeedWrapper>
         {posts.map(({ node: { id, frontmatter } }) => {
-          console.log(frontmatter)
-
           return <PostFeed key={id} frontmatter={frontmatter} />
         })}
       </PostFeedWrapper>
-    </Layout>
+    </>
   )
 }
 

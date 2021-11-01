@@ -77,9 +77,12 @@ const HeaderRoot = styled.header`
   height: ${HEADER_HEIGHT}px;
 
   border-bottom: 1px solid var(--adaptiveGray200);
-  padding: 0 2rem;
-
+  padding: 0 ${props => props.theme.paddings.xxxxxl};
   background-color: var(--adaptiveGray50);
+
+  ${props => props.theme.deviceSizes.desktop} {
+    padding: 0 ${props => props.theme.paddings.global};
+  }
 `
 
 const LeftPanel = styled.div``

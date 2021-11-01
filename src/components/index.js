@@ -5,6 +5,7 @@ import PostFeed from './PostFeed'
 import Divider from './Divider'
 import PostFeedWrapper from './PostFeedWrapper'
 import AllPostTitle from './AllPostTitle'
+import Code from './Code'
 
 export {
   Layout,
@@ -14,4 +15,5 @@ export {
   Divider,
   PostFeedWrapper,
   AllPostTitle,
+  Code,
 }

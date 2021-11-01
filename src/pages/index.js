@@ -1,11 +1,5 @@
 import * as React from 'react'
-import {
-  AllPostTitle,
-  Divider,
-  Layout,
-  PostFeed,
-  PostFeedWrapper,
-} from '../components'
+import { AllPostTitle, Divider, PostFeed, PostFeedWrapper } from '../components'
 import { graphql } from 'gatsby'
 
 // TODO: allPost.js를 그대로 베껴야 한다!!
@@ -15,18 +9,16 @@ const IndexPage = props => {
   const posts = data?.allMdx.edges
 
   return (
-    <Layout>
+    <>
       <AllPostTitle title='Typed 기술 블로그' />
       <Divider />
 
       <PostFeedWrapper>
         {posts.map(({ node: { id, frontmatter } }) => {
-          console.log(frontmatter)
-
           return <PostFeed key={id} frontmatter={frontmatter} />
         })}
       </PostFeedWrapper>
-    </Layout>
+    </>
   )
 }
 
@@ -50,7 +42,7 @@ export const allPostQuery = graphql`
             author
             featuredImage {
               childImageSharp {
-                fixed(width: 220, height: 164) {
+                fixed(width: 500) {
                   ...GatsbyImageSharpFixed
                 }
                 fluid(maxWidth: 320) {

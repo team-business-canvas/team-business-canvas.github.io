@@ -94,10 +94,10 @@ const FooterRoot = styled.footer`
   align-items: center;
   justify-content: center;
 
-  margin-top: ${FOOTER_WHITE_SPACE_HEIGHT}px;
+  /* margin-top: ${FOOTER_WHITE_SPACE_HEIGHT}px; */
   border-top: 1px solid var(--adaptiveGray200);
   padding-bottom: ${FOOTER_WHITE_SPACE_HEIGHT}px;
-  background: var(--adaptiveGray50);
+  background-color: var(--adaptiveGray50);
 `
 
 const SocialWrapper = styled.div`
@@ -105,7 +105,8 @@ const SocialWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin: 48px 0 36px 0;
+  margin-bottom: 36px;
+  padding-top: 48px;
 
   a {
     cursor: pointer;

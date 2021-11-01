@@ -6,9 +6,10 @@ function PostFeedWrapper({ children }) {
 }
 
 const PostFeedWrapperRoot = styled.div`
-  padding: 0 2rem;
+  padding: 0 ${props => props.theme.paddings.xxxxxl};
+
   ${props => props.theme.deviceSizes.desktop} {
-    padding: 0 8.5rem;
+    padding: 0 ${props => props.theme.paddings.global};
   }
 `
 

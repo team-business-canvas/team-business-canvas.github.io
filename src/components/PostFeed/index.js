@@ -5,8 +5,6 @@ import { Link } from 'gatsby'
 import PostHover from '../../../animations/PostHover'
 
 function PostFeed({ frontmatter }) {
-  console.log(frontmatter)
-
   const thumbnail = frontmatter.featuredImage?.childImageSharp?.fixed
   const fluidThumbnail = frontmatter.featuredImage?.childImageSharp?.fluid
 
@@ -17,7 +15,7 @@ function PostFeed({ frontmatter }) {
       <PostFeedWrapper onClick={onPostFeedClick}>
         {thumbnail && (
           <ThumbnailWrapper>
-            <Img className='thumbnail' fluid={fluidThumbnail} />
+            {/* <Img className='thumbnail' fixed={thumbnail} /> */}
           </ThumbnailWrapper>
         )}
         <PostInfoWrapper>
