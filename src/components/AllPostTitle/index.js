@@ -4,7 +4,7 @@ import useScrollFadeIn from '../../hooks/useScrollFadeIn'
 
 function AllPostTitle({ title }) {
   return (
-    <AllPostTitleRoot {...useScrollFadeIn('up', 1, 0)}>
+    <AllPostTitleRoot {...useScrollFadeIn('up', 0.75, 0)}>
       {title}
     </AllPostTitleRoot>
   )

@@ -2,13 +2,19 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
-function PageItem({ page }) {
+function PageItem({ page, isIndexPage }) {
   const isCurrentPage =
     Number(window.location.pathname.split('/').at(-1)) === page
 
+  const shouldFirstPageItemBeDisabled = isIndexPage && page === 1
+
   return (
     <Link to={`/blog/${page}`}>
-      <PageButton isCurrentPage={isCurrentPage}>{page}</PageButton>
+      <PageButton
+        isCurrentPage={isCurrentPage || shouldFirstPageItemBeDisabled}
+      >
+        {page}
+      </PageButton>
     </Link>
   )
 }

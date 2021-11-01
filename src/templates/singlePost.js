@@ -18,7 +18,7 @@ function SinglePost(props) {
 
   return (
     <>
-      <PostTitle itemprop='headline' {...useScrollFadeIn('up', 1, 0)}>
+      <PostTitle itemprop='headline' {...useScrollFadeIn('up', 0.75, 0)}>
         {title}
       </PostTitle>
       <PostInfo>

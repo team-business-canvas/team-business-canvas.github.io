@@ -3,9 +3,13 @@ import styled from 'styled-components'
 import PageItem from './PageItem'
 import NextPrevItem from './NextPrevItem'
 
-function Pagination({ isFirstPage, isLastPage, numPages, currentPage }) {
-  console.log(isFirstPage, isLastPage, numPages, currentPage)
-
+function Pagination({
+  isFirstPage,
+  isLastPage,
+  numPages,
+  currentPage,
+  isIndexPage,
+}) {
   return (
     <PaginationRoot>
       <NextPrevItem
@@ -15,7 +19,7 @@ function Pagination({ isFirstPage, isLastPage, numPages, currentPage }) {
         currentPage={currentPage}
       />
       {Array.from({ length: numPages }, (_, i) => {
-        return <PageItem key={i} page={i + 1} />
+        return <PageItem key={i} page={i + 1} isIndexPage={isIndexPage} />
       })}
       <NextPrevItem
         direction='next'

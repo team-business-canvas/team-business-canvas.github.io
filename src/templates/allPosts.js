@@ -14,8 +14,8 @@ function allPosts(props) {
 
   const isFirstPage = currentPage === 1
   const isLastPage = currentPage === numPages
-  const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${currentPage - 1}`
-  const nextPage = `/blog/${currentPage + 1}`
+  // const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${currentPage - 1}`
+  // const nextPage = `/blog/${currentPage + 1}`
 
   const posts = data?.allMdx.edges
 

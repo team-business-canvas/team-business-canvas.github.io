@@ -1,5 +1,11 @@
 import * as React from 'react'
-import { AllPostTitle, Divider, PostFeed, PostFeedWrapper } from '../components'
+import {
+  AllPostTitle,
+  Divider,
+  Pagination,
+  PostFeed,
+  PostFeedWrapper,
+} from '../components'
 import { graphql } from 'gatsby'
 
 // TODO: allPost.js를 그대로 베껴야 한다!!
@@ -18,6 +24,15 @@ const IndexPage = props => {
           return <PostFeed key={id} frontmatter={frontmatter} />
         })}
       </PostFeedWrapper>
+
+      {/* numPages 즉, 총 몇 페이지인지는 개발하면서 수작업으로 확인해줘야 한다. */}
+      <Pagination
+        isFirstPage={true}
+        isLastPage={false}
+        numPages={2}
+        currentPage={1}
+        isIndexPage={true}
+      />
     </>
   )
 }
