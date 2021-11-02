@@ -7,6 +7,7 @@ function PostFeedWrapper({ children }) {
 
 const PostFeedWrapperRoot = styled.div`
   padding: 0 ${props => props.theme.paddings.xxxxxl};
+  background-color: var(--adaptiveGray50);
 
   ${props => props.theme.deviceSizes.desktop} {
     padding: 0 ${props => props.theme.paddings.global};

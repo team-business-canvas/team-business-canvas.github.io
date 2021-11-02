@@ -13,10 +13,14 @@ function AllPostTitle({ title }) {
 const AllPostTitleRoot = styled.h1`
   width: 100%;
   margin-top: 48px;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   text-align: center;
   color: var(--adaptiveGray900);
+
+  ${props => props.theme.deviceSizes.desktop} {
+    font-size: 2em;
+  }
 `
 
 export default AllPostTitle

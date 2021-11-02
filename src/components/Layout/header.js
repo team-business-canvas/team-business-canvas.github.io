@@ -1,24 +1,38 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import LightFullLogo from '../../images/light-full-logo.svg'
 import DarkFullLogo from '../../images/dark-full-logo.png'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { HEADER_HEIGHT, HEADER_LOGO_HEIGHT } from '../../constants'
-import Hamberger from './hamberger'
 import Sun from '../../images/sun.svg'
 import Moon from '../../images/moon.svg'
+import MenuBlack from '../../images/menu-black.svg'
+import MenuWhite from '../../images/menu-white.svg'
+
 import { Drawer } from '..'
 
 function Header() {
   const [isScroll, setIsScroll] = useState(false)
   const [isMenuOpen, setisMenuOpen] = useState(false)
-  const [isDarkMode, setIsDarkMode] = useState(() =>
-    document.body.classList.contains('dark-mode')
-  )
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('isDarkMode')
+      ? localStorage.getItem('isDarkMode')
+      : false
+  })
 
   const menuClick = () => {
     setisMenuOpen(!isMenuOpen)
   }
+
+  useLayoutEffect(() => {
+    console.log('isDarkMode', isDarkMode)
+
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode')
+    } else {
+      document.body.classList.remove('dark-mode')
+    }
+  }, [])
 
   const handleScroll = useCallback(() => {
     if (window.pageYOffset > 0) {
@@ -39,6 +53,7 @@ function Header() {
   const darkModeButtonClick = () => {
     document.body.classList.toggle('dark-mode')
     setIsDarkMode(isDarkMode => !isDarkMode)
+    localStorage.setItem('darkMode', !isDarkMode)
   }
 
   return (
@@ -52,7 +67,7 @@ function Header() {
             style={{ cursor: 'pointer' }}
             onClick={menuClick}
           >
-            <Hamberger isMenuOpen={isMenuOpen} />
+            <img src={MenuBlack} alt='menu' />
           </div>
         </LeftPanel>
 

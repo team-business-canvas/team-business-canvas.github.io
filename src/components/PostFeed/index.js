@@ -87,15 +87,19 @@ const PostInfoWrapper = styled.div`
   width: 100%;
 
   .title {
-    margin-bottom: 18px;
-
+    margin-bottom: 8px;
     color: var(--adaptiveGray900);
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
+
+    ${props => props.theme.deviceSizes.desktop} {
+      margin-bottom: 18px;
+      font-size: 24px;
+    }
   }
 
   .excerpt {
-    margin-bottom: 24px;
+    margin-bottom: 8px;
 
     color: var(--adaptiveGray600);
     font-size: 16px;
@@ -107,6 +111,10 @@ const PostInfoWrapper = styled.div`
     -webkit-line-clamp: 3;
 
     line-height: 1.5;
+
+    ${props => props.theme.deviceSizes.desktop} {
+      margin-bottom: 24px;
+    }
   }
 
   .date {
