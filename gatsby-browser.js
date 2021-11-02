@@ -210,12 +210,12 @@ const mdxComponents = {
       <center>
         <figure>
           <Img {...props} />
-          {props.caption && (
+          {props.alt && (
             <figcaption
               className='caption'
               style={{ fontSize: '14px', color: `var(--adaptiveGray900)` }}
             >
-              {props.caption}
+              {props.alt}
             </figcaption>
           )}
         </figure>
@@ -250,6 +250,36 @@ const mdxComponents = {
       </H3>
     )
   },
+  h4: props => {
+    return (
+      <H4 id={props.children} {...props}>
+        {props.children}
+        <a href={`#${props.children}`} className='anchor after'>
+          <img src={link} alt='anchor' />
+        </a>
+      </H4>
+    )
+  },
+  h5: props => {
+    return (
+      <H5 id={props.children} {...props}>
+        {props.children}
+        <a href={`#${props.children}`} className='anchor after'>
+          <img src={link} alt='anchor' />
+        </a>
+      </H5>
+    )
+  },
+  h6: props => {
+    return (
+      <H6 id={props.children} {...props}>
+        {props.children}
+        <a href={`#${props.children}`} className='anchor after'>
+          <img src={link} alt='anchor' />
+        </a>
+      </H6>
+    )
+  },
   pre: props => {
     return <Pre {...props} />
   },
@@ -281,6 +311,8 @@ const hasLink = size => css`
 `
 
 const Table = styled.table`
+  width: 100%;
+
   th {
     font-weight: 600;
   }
@@ -409,36 +441,57 @@ const Blockquote = styled.blockquote`
 `
 
 const Img = styled.img`
-  border-style: none;
   max-width: 100%;
+  border-style: none;
+  border-radius: 6px;
   box-sizing: content-box;
   color: inherit;
   background-color: #ffffff;
 `
 
 const H1 = styled.h1`
-  font-size: 28px;
+  margin: 48px 0 24px 0;
+  font-size: 40px;
   line-height: 1.5;
   font-weight: bold;
-
   ${hasLink(28)}
 `
 
 const H2 = styled.h2`
-  margin: 32px 0 16px 0;
-  font-size: 24px;
+  margin: 48px 0 24px 0;
+  font-size: 32px;
   line-height: 1.5;
   font-weight: bold;
-
   ${hasLink(24)}
 `
 
 const H3 = styled.h3`
-  margin: 28px 0 16px 0;
-  font-size: 18px;
+  margin: 48px 0 24px 0;
+  font-size: 28px;
   line-height: 1.5;
   font-weight: bold;
+  ${hasLink(18)}
+`
 
+const H4 = styled.h4`
+  margin: 48px 0 24px 0;
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: bold;
+  ${hasLink(18)}
+`
+const H5 = styled.h5`
+  margin: 48px 0 24px 0;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: bold;
+  ${hasLink(18)}
+`
+const H6 = styled.h6`
+  margin: 48px 0 24px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: bold;
   ${hasLink(18)}
 `
 
