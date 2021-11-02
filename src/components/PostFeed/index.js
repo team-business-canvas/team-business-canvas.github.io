@@ -8,16 +8,12 @@ function PostFeed({ frontmatter }) {
   const thumbnail = frontmatter.featuredImage?.childImageSharp?.fixed
   const fluidThumbnail = frontmatter.featuredImage?.childImageSharp?.fluid
 
-  const onPostFeedClick = () => {}
+  console.log('fluidThumbnail', fluidThumbnail)
 
   return (
     <PostFeedRoot to={`/${frontmatter.slug}`} itemProp='url'>
-      <PostFeedWrapper onClick={onPostFeedClick}>
-        {thumbnail && (
-          <ThumbnailWrapper>
-            {/* <Img className='thumbnail' fixed={thumbnail} /> */}
-          </ThumbnailWrapper>
-        )}
+      <PostFeedWrapper>
+        {thumbnail && <Img fluid={fluidThumbnail} />}
         <PostInfoWrapper>
           <div className='title'>{frontmatter.title}</div>
           <div className='excerpt'>{frontmatter.excerpt}</div>
@@ -70,12 +66,15 @@ const ThumbnailWrapper = styled.div`
   }
 
   ${props => props.theme.deviceSizes.desktop} {
-    margin-right: 20px;
+    width: 220px;
+    height: 164px;
 
+    margin-right: 20px;
+    /* 
     .thumbnail {
       width: 100%;
       object-fit: cover;
-    }
+    } */
   }
 `
 
