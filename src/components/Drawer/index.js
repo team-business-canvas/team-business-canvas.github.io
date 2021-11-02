@@ -61,7 +61,7 @@ const DrawerContent = styled.div`
   height: 100%;
 
   background-color: var(--adaptiveGray50);
-  pointer-events: 'none';
+  pointer-events: auto;
   animation: ${DrawerEase} 0.25s ease-in-out;
 `
 

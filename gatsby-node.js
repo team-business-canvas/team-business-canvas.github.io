@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const posts = result.data.allMdx.edges
 
   // Create paginated page for blog posts
-  const postPerPage = 3 // 한 페이지당 얼마나 보여줄거니
+  const postPerPage = 4 // 한 페이지당 얼마나 보여줄거니
   const numPages = Math.ceil(posts.length / postPerPage) // 총 몇 페이지 나오니
 
   Array.from({ length: numPages }).forEach((_, i) => {

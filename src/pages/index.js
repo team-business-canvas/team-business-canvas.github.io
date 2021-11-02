@@ -5,10 +5,13 @@ import {
   Pagination,
   PostFeed,
   PostFeedWrapper,
+  SEO,
 } from '../components'
 import { graphql } from 'gatsby'
 
 // TODO: allPost.js를 그대로 베껴야 한다!!
+/* numPages 즉, 총 몇 페이지인지는 개발하면서 수작업으로 확인해줘야 한다. */
+/* allPost의 numPages를 출력해보고 확인하면 됨 */
 const IndexPage = props => {
   const { data } = props
 
@@ -16,6 +19,7 @@ const IndexPage = props => {
 
   return (
     <>
+      <SEO title='Home' />
       <AllPostTitle title='Typed 기술 블로그' />
       <Divider />
 
@@ -25,11 +29,11 @@ const IndexPage = props => {
         })}
       </PostFeedWrapper>
 
-      {/* numPages 즉, 총 몇 페이지인지는 개발하면서 수작업으로 확인해줘야 한다. */}
       <Pagination
         isFirstPage={true}
         isLastPage={false}
-        numPages={2}
+        // allPost의 numPages를 출력해보고 확인하면 됨
+        numPages={3}
         currentPage={1}
         isIndexPage={true}
       />
@@ -40,7 +44,7 @@ const IndexPage = props => {
 // TODO: page에 속한 컴포넌트들은 createPage를 통해 context를 전달받지 못하기 때문에 직접 인자를 넣어줘야 함
 // 첫 페이지이므로 skip은 0, limit은 gatsby-node.js에 정의된 postPerPage 만큼
 export const allPostQuery = graphql`
-  query allPostQuery($skip: Int! = 0, $limit: Int! = 3) {
+  query allPostQuery($skip: Int! = 0, $limit: Int! = 4) {
     allMdx(
       sort: { fields: frontmatter___date, order: DESC }
       skip: $skip

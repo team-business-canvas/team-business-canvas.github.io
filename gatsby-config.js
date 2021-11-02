@@ -1,12 +1,14 @@
 module.exports = {
   siteMetadata: {
     title: `Typed 기술 블로그`,
+    description: `Typed의 기술 블로그입니다`,
+    lang: 'ko',
+    image: '/src/images/typed_og.png',
+    siteUrl: `https://business-canvas.github.io`,
     author: {
       name: `Typed`,
       summary: `Typed는 Data-driven하게 변해가는 Business Professional들의 비즈니스 문서 업무의 혁신을 불러일으킬 새로운 패러다임의 SaaS입니다`,
     },
-    description: `Typed의 기술 블로그입니다`,
-    siteUrl: `https://business-canvas.github.io/typed-blog/`,
     social: {
       facebook: `https://www.facebook.com/Typed.do`,
       youtube: 'https://www.youtube.com/channel/UC5TE3eZk_t-OUl-BY-VTK_w',

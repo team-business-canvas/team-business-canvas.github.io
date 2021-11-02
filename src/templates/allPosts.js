@@ -6,6 +6,7 @@ import {
   PostFeed,
   PostFeedWrapper,
   Pagination,
+  SEO,
 } from '../components'
 
 function allPosts(props) {
@@ -23,10 +24,11 @@ function allPosts(props) {
   // const postPerPage = limit // 한 페이지에 몇 개씩 보여줘?
   // const numPages = Math.ceil(totalCount / postPerPage) // 총 몇 페이지 나오니?
 
-  console.log(numPages)
+  console.log('numPages', numPages)
 
   return (
     <>
+      <SEO title={'Blog'} />
       <AllPostTitle title='Typed 기술 블로그' />
       <Divider />
       <PostFeedWrapper>

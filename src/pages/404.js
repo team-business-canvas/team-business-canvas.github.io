@@ -1,12 +1,10 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const NotFoundPage = () => {
   return (
     <NotFoundPageRoot>
       <img src='https://http.cat/404' alt='404' />
-      <Link to='/'>Go Home</Link>
     </NotFoundPageRoot>
   )
 }

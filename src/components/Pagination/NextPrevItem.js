@@ -1,4 +1,4 @@
-import { Link, navigate } from 'gatsby'
+import { navigate } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import chevronLeft from '../../images/chevron-left.svg'
@@ -16,20 +16,18 @@ function NextPrevItem({ direction, isFirstPage, isLastPage, currentPage }) {
   }
 
   return (
-    <Link>
-      <NextPrevItemButton onClick={handleNextPrevButtonClick}>
-        {direction === 'prev' && (
-          <div>
-            <img src={chevronLeft} alt='prev' />
-          </div>
-        )}
-        {direction === 'next' && (
-          <div>
-            <img src={chevronRight} alt='next' />
-          </div>
-        )}
-      </NextPrevItemButton>
-    </Link>
+    <NextPrevItemButton onClick={handleNextPrevButtonClick}>
+      {direction === 'prev' && (
+        <div>
+          <img src={chevronLeft} alt='prev' />
+        </div>
+      )}
+      {direction === 'next' && (
+        <div>
+          <img src={chevronRight} alt='next' />
+        </div>
+      )}
+    </NextPrevItemButton>
   )
 }
 
@@ -42,6 +40,7 @@ const NextPrevItemButton = styled.button`
   height: 50px;
 
   border-radius: 6px;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.02);

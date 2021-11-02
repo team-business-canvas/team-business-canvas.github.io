@@ -8,6 +8,7 @@ import AllPostTitle from './AllPostTitle'
 import Code from './Code'
 import Pagination from './Pagination'
 import Drawer from './Drawer'
+import SEO from './SEO'
 
 export {
   Layout,
@@ -20,4 +21,5 @@ export {
   Code,
   Pagination,
   Drawer,
+  SEO,
 }

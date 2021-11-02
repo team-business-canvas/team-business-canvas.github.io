@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Img from 'gatsby-image'
-import { Divider } from '../components'
+import { Divider, SEO } from '../components'
 import styled from 'styled-components'
 import '../../style/normalize.css'
 import useScrollFadeIn from '../hooks/useScrollFadeIn'
@@ -11,6 +11,7 @@ function SinglePost(props) {
   const { data, pageContext } = props
 
   const title = data.mdx.frontmatter?.title
+  const excerpt = data.mdx.frontmatter?.excerpt
   const date = data.mdx.frontmatter?.date
   const author = data.mdx.frontmatter?.author
   const featuredImage =
@@ -18,6 +19,7 @@ function SinglePost(props) {
 
   return (
     <>
+      <SEO title={title} description={excerpt} />
       <PostTitle itemprop='headline' {...useScrollFadeIn('up', 0.75, 0)}>
         {title}
       </PostTitle>
