@@ -1,12 +1,19 @@
 /* eslint-disable */
 import React from 'react'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import styled, {
+  createGlobalStyle,
+  css,
+  ThemeProvider,
+} from 'styled-components'
 import Theme from './theme/theme'
 import './style/reset.css'
 import { Layout } from './src/components'
 import { MDXProvider } from '@mdx-js/react'
-require('prismjs/themes/prism-okaidia.css')
+import link from './src/images/link.svg'
+
+// prism-react-renderer가 작동을 제대로 안한다. 직접 prismjs를 넣도록 하자!
 import './style/language-tabs.css'
+require('prismjs/themes/prism-okaidia.css')
 
 const GlobalStyles = createGlobalStyle`
     :root {
@@ -182,10 +189,265 @@ const GlobalStyles = createGlobalStyle`
 `
 
 const mdxComponents = {
-  h1: props => <h1 {...props} />,
-  pre: props => <pre {...props} />,
+  p: props => <P {...props} />,
+  a: props => <A {...props} />,
+  b: props => <B {...props} />,
+  mark: props => <Mark {...props} />,
+  small: props => <Small {...props} />,
+  blockquote: props => <Blockquote {...props} />,
+  ul: props => <Ul {...props} />,
+  ol: props => <Ol {...props} />,
+  li: props => <Li {...props} />,
+  hr: props => <Hr {...props} />,
+  dfn: props => <Dfn {...props} />,
+  table: props => (
+    <center>
+      <Table {...props} />
+    </center>
+  ),
+  img: props => {
+    return (
+      <center>
+        <figure>
+          <Img {...props} />
+          {props.caption && (
+            <figcaption
+              className='caption'
+              style={{ fontSize: '14px', color: `var(--adaptiveGray900)` }}
+            >
+              {props.caption}
+            </figcaption>
+          )}
+        </figure>
+      </center>
+    )
+  },
+  h1: props => (
+    <H1 id={props.children} {...props}>
+      {props.children}
+      <a href={`#${props.children}`} className='anchor after'>
+        <img src={link} alt='anchor' />
+      </a>
+    </H1>
+  ),
+  h2: props => {
+    return (
+      <H2 id={props.children} {...props}>
+        {props.children}
+        <a href={`#${props.children}`} className='anchor after'>
+          <img src={link} alt='anchor' />
+        </a>
+      </H2>
+    )
+  },
+  h3: props => {
+    return (
+      <H3 id={props.children} {...props}>
+        {props.children}
+        <a href={`#${props.children}`} className='anchor after'>
+          <img src={link} alt='anchor' />
+        </a>
+      </H3>
+    )
+  },
+  pre: props => {
+    return <Pre {...props} />
+  },
   wrapper: ({ children }) => <>{children}</>,
 }
+
+const hasLink = size => css`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .anchor {
+    display: none;
+  }
+
+  &:hover {
+    .anchor {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-left: 8px;
+
+      img {
+        width: ${size}px;
+      }
+    }
+  }
+`
+
+const Table = styled.table`
+  th {
+    font-weight: 600;
+  }
+
+  th,
+  td {
+    padding: 6px 13px;
+    border: 1px solid var(--adaptiveGray300);
+  }
+
+  tr {
+    background-color: var(--adaptiveGray50);
+    border-top: 1px solid hsla(210, 18%, 87%, 1);
+  }
+
+  tr:nth-child(2n) {
+    background-color: var(--adaptiveGray100);
+  }
+
+  img {
+    background-color: transparent;
+  }
+`
+
+const Ul = styled.ul`
+  margin: 12px 0;
+  padding-left: 2em;
+
+  ol {
+    list-style: lower-roman outside;
+  }
+
+  ol ol {
+    list-style-type: lower-alpha outside;
+  }
+`
+
+const Ol = styled.ol`
+  margin: 12px 0;
+  padding-left: 2em;
+
+  ol {
+    list-style-type: lower-roman outside;
+  }
+
+  ol ol {
+    list-style-type: lower-alpha outside;
+  }
+`
+
+const Li = styled.li`
+  display: list-item;
+  text-align: -webkit-match-parent;
+  margin-bottom: 16px;
+
+  & > p {
+    margin-top: 16px;
+  }
+
+  & + li {
+    margin-top: 0.25em;
+  }
+`
+
+const Hr = styled.hr`
+  box-sizing: content-box;
+  overflow: hidden;
+  background: transparent;
+  border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+  height: 0.25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #d0d7de;
+  border: 0;
+
+  background: var(--adaptiveGray400);
+  border: 0;
+  height: 1px;
+`
+
+const P = styled.p`
+  margin: 16px 0;
+  font-size: 16px;
+  line-height: 1.5;
+`
+
+const Dfn = styled.dfn`
+  font-style: italic;
+`
+
+const A = styled.a`
+  text-decoration: underline;
+  text-underline-position: under;
+  color: var(--color-etc-dark-theme);
+  /* display: inline-block */
+  &:active,
+  &:hover {
+    outline-width: 0;
+    background-color: var(--color-etc-dark-theme);
+    color: var(--adaptiveGray50);
+    transition: background 0.5s ease;
+  }
+`
+
+const B = styled.b`
+  font-weight: 600;
+`
+
+const Mark = styled.mark`
+  margin: 16px 0;
+  background-color: #ff0;
+  color: var(--adaptiveGray900);
+  font-size: 18px;
+  line-height: 1.5;
+`
+
+const Small = styled.small`
+  font-size: 90%;
+`
+
+const Blockquote = styled.blockquote`
+  margin: 20px 0;
+  padding: 1em;
+  border-left: 0.25em solid var(--adaptiveGray400);
+  background-color: var(--adaptiveGray100);
+`
+
+const Img = styled.img`
+  border-style: none;
+  max-width: 100%;
+  box-sizing: content-box;
+  color: inherit;
+  background-color: #ffffff;
+`
+
+const H1 = styled.h1`
+  font-size: 28px;
+  line-height: 1.5;
+  font-weight: bold;
+
+  ${hasLink(28)}
+`
+
+const H2 = styled.h2`
+  margin: 32px 0 16px 0;
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: bold;
+
+  ${hasLink(24)}
+`
+
+const H3 = styled.h3`
+  margin: 28px 0 16px 0;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: bold;
+
+  ${hasLink(18)}
+`
+
+const Pre = styled.pre`
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  word-wrap: pre; /* normal로 하는 사람도 있던데 */
+`
 
 export const wrapRootElement = ({ element }) => {
   return (

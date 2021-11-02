@@ -67,7 +67,11 @@ function Header() {
             style={{ cursor: 'pointer' }}
             onClick={menuClick}
           >
-            <img src={MenuBlack} alt='menu' />
+            {isDarkMode ? (
+              <img src={MenuWhite} alt='menu' />
+            ) : (
+              <img src={MenuBlack} alt='menu' />
+            )}
           </div>
         </LeftPanel>
 

@@ -40,7 +40,7 @@
 
 .gatsby-highlight pre[class~='language-css']::before {
   content: 'css';
-  background: #2760e5;
+  background: #428be0;
   color: white;
 }
 

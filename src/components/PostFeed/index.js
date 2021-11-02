@@ -90,7 +90,6 @@ const PostInfoWrapper = styled.div`
     margin-bottom: 8px;
     color: var(--adaptiveGray900);
     font-size: 18px;
-    font-weight: bold;
 
     ${props => props.theme.deviceSizes.desktop} {
       margin-bottom: 18px;

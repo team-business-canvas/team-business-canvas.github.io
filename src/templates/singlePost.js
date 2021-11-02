@@ -52,6 +52,10 @@ const PostInfo = styled.h2`
 `
 
 const MDXRendererWrapper = styled.div`
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+
   background-color: var(--adaptiveGray50);
 
   padding: 0 ${props => props.theme.paddings.xxxxxl};

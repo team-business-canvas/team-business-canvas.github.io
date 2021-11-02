@@ -24,8 +24,8 @@ const PageButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 
   border-radius: 6px;
 
@@ -40,6 +40,11 @@ const PageButton = styled.button`
   &:hover {
     background-color: ${({ isCurrentPage }) =>
       !isCurrentPage && 'var(--adaptiveGray100)'};
+  }
+
+  ${props => props.theme.deviceSizes.desktop} {
+    width: 50px;
+    height: 50px;
   }
 `
 
