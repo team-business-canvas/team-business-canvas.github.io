@@ -10,6 +10,7 @@ import './style/reset.css'
 import { Layout } from './src/components'
 import { MDXProvider } from '@mdx-js/react'
 import link from './src/images/link.svg'
+import { RecoilRoot } from 'recoil'
 
 // prism-react-renderer가 작동을 제대로 안한다. 직접 prismjs를 넣도록 하자!
 import './style/language-tabs.css'
@@ -338,8 +339,9 @@ const Table = styled.table`
 `
 
 const Ul = styled.ul`
-  margin: 12px 0;
+  margin: 32px 0 32px 0;
   padding-left: 2em;
+  list-style: outside;
 
   ol {
     list-style: lower-roman outside;
@@ -348,11 +350,22 @@ const Ul = styled.ul`
   ol ol {
     list-style-type: lower-alpha outside;
   }
+
+  &[type='1'] {
+    list-style-type: decimal;
+  }
+  &[type='a'] {
+    list-style-type: lower-alpha;
+  }
+  &[type='i'] {
+    list-style-type: lower-roman;
+  }
 `
 
 const Ol = styled.ol`
-  margin: 12px 0;
+  margin: 32px 0 32px 0;
   padding-left: 2em;
+  list-style: outside;
 
   ol {
     list-style-type: lower-roman outside;
@@ -497,7 +510,7 @@ const H6 = styled.h6`
 
 const Pre = styled.pre`
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 32px;
   font-size: 12px;
   word-wrap: pre; /* normal로 하는 사람도 있던데 */
 `
@@ -505,10 +518,12 @@ const Pre = styled.pre`
 export const wrapRootElement = ({ element }) => {
   return (
     <MDXProvider components={mdxComponents}>
-      <ThemeProvider theme={Theme}>
-        <GlobalStyles />
-        <Layout>{element}</Layout>
-      </ThemeProvider>
+      <RecoilRoot>
+        <ThemeProvider theme={Theme}>
+          <GlobalStyles />
+          <Layout>{element}</Layout>
+        </ThemeProvider>
+      </RecoilRoot>
     </MDXProvider>
   )
 }

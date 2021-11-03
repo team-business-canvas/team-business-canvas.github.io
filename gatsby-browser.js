@@ -46,6 +46,8 @@ const GlobalStyles = createGlobalStyle`
         --adaptiveGray800: #333d4b;
         --adaptiveGray900: #191f28;
 
+        --hover-background: var(--adaptiveGray100);
+
 
         /* theme root style inject */
         --color-gs-1: #121211;

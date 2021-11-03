@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { navigate } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
@@ -58,7 +57,7 @@ const NextPrevItemButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: var(--adaptiveGray100);
   }
 `
 
