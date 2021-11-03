@@ -13,7 +13,7 @@ function PostFeed({ frontmatter }) {
   return (
     <PostFeedRoot to={`/${frontmatter.slug}`} itemProp='url'>
       <PostFeedWrapper>
-        {thumbnail && <Img fluid={fluidThumbnail} />}
+        {fluidThumbnail && <Img fluid={fluidThumbnail} />}
         <PostInfoWrapper>
           <div className='title'>{frontmatter.title}</div>
           <div className='excerpt'>{frontmatter.excerpt}</div>
@@ -35,6 +35,10 @@ const PostFeedRoot = styled(Link)`
   padding: 20px;
 
   cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
 
   &:hover {
     animation: ${PostHover} 0.5s ease forwards;

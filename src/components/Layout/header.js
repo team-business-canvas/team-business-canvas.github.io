@@ -2,35 +2,32 @@ import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import LightFullLogo from '../../images/light-full-logo.svg'
 import DarkFullLogo from '../../images/dark-full-logo.png'
-import styled, { css } from 'styled-components'
-import { HEADER_HEIGHT, HEADER_LOGO_HEIGHT } from '../../constants'
+import styled from 'styled-components'
+import { DARK_MODE, HEADER_HEIGHT, HEADER_LOGO_HEIGHT } from '../../constants'
+import { isDarkModeEnabled } from '../../util'
 import Sun from '../../images/sun.svg'
 import Moon from '../../images/moon.svg'
 import MenuBlack from '../../images/menu-black.svg'
 import MenuWhite from '../../images/menu-white.svg'
+import { useRecoilState } from 'recoil'
 
 import { Drawer } from '..'
+import isDarkModeState from '../../atom/isDarkModeState'
 
 function Header() {
   const [isScroll, setIsScroll] = useState(false)
   const [isMenuOpen, setisMenuOpen] = useState(false)
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    return localStorage.getItem('isDarkMode')
-      ? localStorage.getItem('isDarkMode')
-      : false
-  })
+  const [isDarkMode, setIsDarkMode] = useRecoilState(isDarkModeState)
 
   const menuClick = () => {
     setisMenuOpen(!isMenuOpen)
   }
 
   useLayoutEffect(() => {
-    console.log('isDarkMode', isDarkMode)
-
     if (isDarkMode) {
-      document.body.classList.add('dark-mode')
+      document.body.classList.add(DARK_MODE)
     } else {
-      document.body.classList.remove('dark-mode')
+      document.body.classList.remove(DARK_MODE)
     }
   }, [])
 
@@ -51,9 +48,9 @@ function Header() {
   }, [handleScroll])
 
   const darkModeButtonClick = () => {
-    document.body.classList.toggle('dark-mode')
+    document.body.classList.toggle(DARK_MODE)
     setIsDarkMode(isDarkMode => !isDarkMode)
-    localStorage.setItem('darkMode', !isDarkMode)
+    localStorage.setItem(DARK_MODE, !isDarkMode)
   }
 
   return (
@@ -68,9 +65,9 @@ function Header() {
             onClick={menuClick}
           >
             {isDarkMode ? (
-              <img src={MenuWhite} alt='menu' />
+              <SvgImg src={MenuWhite} alt='menu' />
             ) : (
-              <img src={MenuBlack} alt='menu' />
+              <SvgImg src={MenuBlack} alt='menu' />
             )}
           </div>
         </LeftPanel>
@@ -82,9 +79,9 @@ function Header() {
         <RightPanel className='left-panel'>
           <button onClick={darkModeButtonClick} style={{ cursor: 'pointer' }}>
             {isDarkMode ? (
-              <img src={Sun} alt='sun' style={{ color: 'white' }} />
+              <SvgImg src={Sun} alt='sun' style={{ color: 'white' }} />
             ) : (
-              <img src={Moon} alt='moon' />
+              <SvgImg src={Moon} alt='moon' />
             )}
           </button>
         </RightPanel>
@@ -120,4 +117,19 @@ const RightPanel = styled.div``
 const LogoImg = styled.img`
   height: ${HEADER_LOGO_HEIGHT}px;
 `
+
+const SvgImg = styled.img`
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+
+  padding: 4px;
+
+  border-radius: 6px;
+
+  &:hover {
+    background-color: var(--adaptiveGray100);
+  }
+`
+
 export default Header

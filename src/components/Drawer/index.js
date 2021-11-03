@@ -26,7 +26,7 @@ function Drawer({ setisMenuOpen }) {
   return (
     <Overlay>
       <DrawerContent ref={drawerRef}>
-        <DrawerHeader>Typed!</DrawerHeader>
+        <DrawerHeader>Typed 기술 블로그입니다</DrawerHeader>
         <DrawerItem onClick={handleHomeClick}>Home</DrawerItem>
         <DrawerItem onClick={handleAboutClick}>About</DrawerItem>
         <DrawerItem onClick={handleBlogClick}>Blog</DrawerItem>
@@ -63,6 +63,7 @@ const DrawerContent = styled.div`
   background-color: var(--adaptiveGray50);
   pointer-events: auto;
   animation: ${DrawerEase} 0.25s ease-in-out;
+  color: var(--adaptiveGray900);
 `
 
 const DrawerHeader = styled.div`
@@ -71,6 +72,7 @@ const DrawerHeader = styled.div`
   align-items: center;
 
   height: 84px;
+  font-size: 18px;
 `
 
 const DrawerItem = styled.button`

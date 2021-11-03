@@ -35,7 +35,7 @@ const fontSizes = {
   xxxl: calcRem(24),
   xxxxl: calcRem(24),
   xxxxxl: calcRem(16 * 2),
-  global: calcRem(16 * 16),
+  global: calcRem(16 * 18),
 }
 
 const paddings = {
@@ -49,7 +49,7 @@ const paddings = {
   xxxl: calcRem(18),
   xxxxl: calcRem(24),
   xxxxxl: calcRem(16 * 2),
-  global: calcRem(16 * 16),
+  global: calcRem(16 * 18),
 }
 
 const margins = {
