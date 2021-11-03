@@ -451,38 +451,38 @@ const Img = styled.img`
 
 const H1 = styled.h1`
   margin: 48px 0 24px 0;
-  font-size: 40px;
+  font-size: 32px;
+  line-height: 1.5;
+  font-weight: bold;
+  ${hasLink(32)}
+`
+
+const H2 = styled.h2`
+  margin: 48px 0 24px 0;
+  font-size: 28px;
   line-height: 1.5;
   font-weight: bold;
   ${hasLink(28)}
 `
 
-const H2 = styled.h2`
+const H3 = styled.h3`
   margin: 48px 0 24px 0;
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1.5;
   font-weight: bold;
   ${hasLink(24)}
 `
 
-const H3 = styled.h3`
-  margin: 48px 0 24px 0;
-  font-size: 28px;
-  line-height: 1.5;
-  font-weight: bold;
-  ${hasLink(18)}
-`
-
 const H4 = styled.h4`
   margin: 48px 0 24px 0;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.5;
   font-weight: bold;
   ${hasLink(18)}
 `
 const H5 = styled.h5`
   margin: 48px 0 24px 0;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: bold;
   ${hasLink(18)}
