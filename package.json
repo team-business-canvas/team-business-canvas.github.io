@@ -16,7 +16,7 @@
     "prepare": "husky install",
     "pre-commit": "lint-staged",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "gatsby build && gh-pages -d public -r 'https://github.com/team-business-canvas/team-business-canvas.github.io' -b master"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
