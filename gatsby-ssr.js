@@ -36,8 +36,8 @@ const GlobalStyles = createGlobalStyle`
         --danger: ${props => props.theme.lightColor.danger};
         /* adaptive gray lightmode */
         --adaptiveGray50: #f9fafb;
-        --adaptiveGray100: #f2f4f6; /* hover background color */ 
-        --adaptiveGray200: #e5e8eb; 
+        --adaptiveGray100: #f2f4f6; /* hover background color */
+        --adaptiveGray200: #e5e8eb;
         --adaptiveGray300: #d1d6db;
         --adaptiveGray400: #b0b8c1;
         --adaptiveGray500: #8b95a1;
@@ -45,8 +45,6 @@ const GlobalStyles = createGlobalStyle`
         --adaptiveGray700: #4e5968;
         --adaptiveGray800: #333d4b;
         --adaptiveGray900: #191f28;
-
-
 
         /* theme root style inject */
         --color-gs-1: #121211;
@@ -184,7 +182,7 @@ const GlobalStyles = createGlobalStyle`
         color: var(---adaptiveGray900);
 
     }
-      
+
     * {
         box-sizing: border-box;
     }
