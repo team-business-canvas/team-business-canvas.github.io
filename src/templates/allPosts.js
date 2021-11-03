@@ -10,7 +10,7 @@ import {
 } from '../components'
 
 function allPosts(props) {
-  const { data, pageContext } = props
+  const { location, data, pageContext } = props
   const { currentPage, numPages } = pageContext
 
   const isFirstPage = currentPage === 1
@@ -24,7 +24,7 @@ function allPosts(props) {
   // const postPerPage = limit // 한 페이지에 몇 개씩 보여줘?
   // const numPages = Math.ceil(totalCount / postPerPage) // 총 몇 페이지 나오니?
 
-  console.log('numPages', numPages)
+  // console.log('numPages', numPages)
 
   return (
     <>
@@ -41,6 +41,7 @@ function allPosts(props) {
         isLastPage={isLastPage}
         numPages={numPages}
         currentPage={currentPage}
+        location={location}
       />
     </>
   )

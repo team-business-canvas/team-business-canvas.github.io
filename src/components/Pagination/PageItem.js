@@ -2,9 +2,11 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
-function PageItem({ page, isIndexPage }) {
-  const isCurrentPage =
-    Number(window.location.pathname.split('/').at(-1)) === page
+function PageItem(props) {
+  const { location, page, isIndexPage } = props
+
+  // window.location 안 먹는데. SSR 단계에서 튕김
+  const isCurrentPage = Number(location.pathname.split('/').at(-1)) === page
 
   const shouldFirstPageItemBeDisabled = isIndexPage && page === 1
 

@@ -9,6 +9,7 @@ function Pagination({
   numPages,
   currentPage,
   isIndexPage,
+  location,
 }) {
   return (
     <PaginationRoot>
@@ -19,7 +20,14 @@ function Pagination({
         currentPage={currentPage}
       />
       {Array.from({ length: numPages }, (_, i) => {
-        return <PageItem key={i} page={i + 1} isIndexPage={isIndexPage} />
+        return (
+          <PageItem
+            key={i}
+            page={i + 1}
+            isIndexPage={isIndexPage}
+            location={location}
+          />
+        )
       })}
       <NextPrevItem
         direction='next'

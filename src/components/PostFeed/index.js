@@ -8,7 +8,7 @@ function PostFeed({ frontmatter }) {
   const thumbnail = frontmatter.featuredImage?.childImageSharp?.fixed
   const fluidThumbnail = frontmatter.featuredImage?.childImageSharp?.fluid
 
-  console.log('fluidThumbnail', fluidThumbnail)
+  // console.log('fluidThumbnail', fluidThumbnail)
 
   return (
     <PostFeedRoot to={`/${frontmatter.slug}`} itemProp='url'>
