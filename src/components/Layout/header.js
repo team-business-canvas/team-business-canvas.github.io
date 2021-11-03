@@ -22,13 +22,13 @@ function Header() {
     setisMenuOpen(!isMenuOpen)
   }
 
-  useLayoutEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add(DARK_MODE)
-    } else {
-      document.body.classList.remove(DARK_MODE)
-    }
-  }, [])
+  // useLayoutEffect(() => {
+  //   if (localStorage.getItem(DARK_MODE)) {
+  //     document.body.classList.add(DARK_MODE)
+  //   } else {
+  //     document.body.classList.remove(DARK_MODE)
+  //   }
+  // }, [])
 
   const handleScroll = useCallback(() => {
     if (window.pageYOffset > 0) {

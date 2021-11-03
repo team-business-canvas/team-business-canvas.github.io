@@ -15,7 +15,8 @@
     "clean": "gatsby clean",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -49,6 +50,7 @@
     "gatsby-remark-prismjs": "^6.0.0",
     "gatsby-remark-responsive-iframe": "^5.0.0",
     "gatsby-remark-smartypants": "^5.0.0",
+    "gh-pages": "^3.2.3",
     "husky": "^6.0.0",
     "lint-staged": "^11.2.6",
     "prettier": "^2.4.1"

@@ -36,8 +36,8 @@ const GlobalStyles = createGlobalStyle`
         --danger: ${props => props.theme.lightColor.danger};
         /* adaptive gray lightmode */
         --adaptiveGray50: #f9fafb;
-        --adaptiveGray100: #f2f4f6;
-        --adaptiveGray200: #e5e8eb;
+        --adaptiveGray100: #f2f4f6; /* hover background color */ 
+        --adaptiveGray200: #e5e8eb; 
         --adaptiveGray300: #d1d6db;
         --adaptiveGray400: #b0b8c1;
         --adaptiveGray500: #8b95a1;
@@ -45,6 +45,7 @@ const GlobalStyles = createGlobalStyle`
         --adaptiveGray700: #4e5968;
         --adaptiveGray800: #333d4b;
         --adaptiveGray900: #191f28;
+
 
 
         /* theme root style inject */
@@ -187,6 +188,12 @@ const GlobalStyles = createGlobalStyle`
     * {
         box-sizing: border-box;
     }
+
+    code[class*='language-'],pre[class*='language-'] {
+      /* code black 내에 있는 폰트를 바꾸고 싶다면 여기를 */
+      font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    }
+
 `
 
 const mdxComponents = {
