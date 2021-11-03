@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktyped_tech_blog=self.webpackChunktyped_tech_blog||[]).push([[883],{9616:function(e,t,n){n.r(t);var c=n(7294),l=n(9).default.main.withConfig({displayName:"sc-404__NotFoundPageRoot",componentId:"sc-xf4v3i-0"})(["display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;"]);t.default=function(){return c.createElement(l,null,c.createElement("img",{src:"https://http.cat/404",alt:"404"}))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-c7e076f458877460a88e.js.map
